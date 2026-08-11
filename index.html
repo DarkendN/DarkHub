@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DARKHUB</title><link rel="stylesheet" href="style.css">
+</head><body>
+<div id="login" class="login-page">
+  <div class="login-wrap">
+    <div class="brand-logo">◆</div>
+    <h1>DARKHUB</h1><p>Script Keeper — bảng điều khiển</p>
+    <div class="login-card">
+      <label>Tài khoản</label><input id="user" value="admin">
+      <label>Mật khẩu</label><input id="pass" type="password" value="password">
+      <button class="red-btn wide" onclick="login()">Đăng nhập</button>
+    </div>
+    <footer>© 2025 <b>DARKHUB</b>. All rights reserved.</footer>
+  </div>
+</div>
+
+<div id="dashboard" hidden>
+<header><div class="brand"><span class="hex">◆</span> DARKHUB</div><button class="outline" onclick="logout()">↪ Đăng xuất</button></header>
+<main>
+<div class="stats">
+<div><i>▣</i><span>Số script</span><strong id="count">0</strong></div>
+<div><i>▷</i><span>Đang chạy</span><strong id="active">0</strong></div>
+<div><i>⌁</i><span>Tổng lượt chạy</span><strong id="runs">0</strong></div>
+</div>
+<div class="section-head"><h2>DANH SÁCH SCRIPT</h2><button class="red-btn" onclick="showCreate()">＋ Tạo script</button></div>
+<div id="cards"></div>
+</main>
+<nav><a class="sel">⌂<small>Dashboard</small></a><a>‹/›<small>Script</small></a><a onclick="showCreate()">＋<small>Tạo mới</small></a><a>⚙<small>Cài đặt</small></a></nav>
+</div>
+
+<div id="create" class="shade" hidden><div class="modal">
+<button class="close" onclick="hideCreate()">×</button><h2>Tạo script</h2>
+<label>Tên script</label><input id="name" placeholder="Nhập tên script...">
+<label>Mô tả</label><input id="desc" placeholder="Nhập mô tả script...">
+<label>Nội dung script</label><textarea id="code" placeholder="Dán nội dung script vào đây..."></textarea>
+<label>Trạng thái</label><select id="status"><option value="1">🔴  Bật ngay khi tạo</option><option value="0">Tắt</option></select>
+<div class="modal-actions"><button class="outline" onclick="hideCreate()">Hủy</button><button class="red-btn" onclick="createScript()">＋ Tạo script</button></div>
+</div></div>
+
+<div id="protect" class="shade" hidden><div class="protect-box">
+<div class="protect-logo">🔒</div><h2>Script <b>được bảo vệ</b></h2>
+<p>Nhập mã bảo mật để xem nội dung script DARKHUB.</p>
+<input id="key" placeholder="Dark-XXX-XXX-XXX-XXXX">
+<button class="red-btn wide" onclick="unlock()">▣ &nbsp; Mở khoá</button>
+<div class="or"><span></span>hoặc<span></span></div>
+<p class="hint">ⓘ &nbsp; Nếu bạn không có mã bảo mật, vui lòng liên hệ người cung cấp script.</p>
+<button class="outline wide" onclick="hideProtect()">Đóng</button>
+</div></div>
+
+<script src="app.js"></script></body></html>
